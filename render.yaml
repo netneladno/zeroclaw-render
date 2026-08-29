@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: zeroclaw
+    env: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: BYNARA_API_KEY
+        sync: false
+      - key: FREEROUTER_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false

@@ -1,0 +1,70 @@
+schema_version = 3
+
+[gateway]
+allow_remote_admin = true
+host = "[::]"
+port = 8300
+allow_public_bind = true
+allowed_origins = ["*"]
+
+[agents.default]
+runtime_profile = "standard"
+risk_profile = "yolo"
+model_provider = "openrouter.default"
+acp_enable_mcp = false
+enabled = true
+
+[agents.agent]
+runtime_profile = "standard"
+risk_profile = "yolo"
+model_provider = "openrouter.default"
+acp_enable_mcp = false
+enabled = true
+
+[runtime_profiles.standard]
+agentic = true
+agentic_timeout_secs = 300
+max_context_tokens = 64000
+max_history_messages = 50
+
+[risk_profiles.yolo]
+level = "full"
+allowed_commands = ["*"]
+auto_approve = ["*"]
+block_high_risk_commands = false
+sandbox_enabled = false
+
+[providers.openrouter]
+api_key = "${OPENROUTER_API_KEY}"
+
+[providers.models.openrouter.default]
+api_key = "${OPENROUTER_API_KEY}"
+model = "minimax/minimax-m3:free"
+
+[providers.models.openrouter.minimax_m3]
+api_key = "${OPENROUTER_API_KEY}"
+model = "minimax/minimax-m3:free"
+
+[providers.models.custom.bynara]
+api_key = "${BYNARA_API_KEY}"
+uri = "https://router.bynara.id/v1"
+model = "mistral-medium-3-5"
+
+[providers.models.custom.freerouter]
+api_key = "${FREEROUTER_API_KEY}"
+uri = "https://freerouter.eu.cc/v1"
+model = "gpt-5-6-luna"
+
+[web_search]
+enabled = true
+search_provider = "tavily"
+tavily_api_key = "${TAVILY_API_KEY}"
+
+[mcp]
+enabled = true
+
+[[mcp.servers]]
+name = "tavily"
+enabled = true
+transport = "sse"
+url = "https://mcp.tavily.com/mcp/?tavilyApiKey=${TAVILY_API_KEY}"

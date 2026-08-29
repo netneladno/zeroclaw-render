@@ -7,6 +7,9 @@ port = 8300
 allow_public_bind = true
 allowed_origins = ["*"]
 
+[security]
+require_pairing = false
+
 [agents.default]
 runtime_profile = "standard"
 risk_profile = "yolo"

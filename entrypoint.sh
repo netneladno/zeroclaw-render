@@ -29,4 +29,4 @@ export BYNARA_API_KEY="${BYNARA_API_KEY}"
 export FREEROUTER_API_KEY="${FREEROUTER_API_KEY}"
 export TAVILY_API_KEY="${TAVILY_API_KEY}"
 
-exec zeroclaw daemon
+exec zeroclaw daemon -p "${PORT}" --host "[::]"

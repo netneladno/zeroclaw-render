@@ -15,7 +15,7 @@ TAVILY_API_KEY="${TAVILY_API_KEY:-$TAVILY_DEFAULT}"
 
 echo "Configuring ZeroClaw for Render on port ${PORT}..."
 
-if [ ! -f /root/.zeroclaw/config.toml ] && [ -f /etc/zeroclaw/config.toml ]; then
+if [ -f /etc/zeroclaw/config.toml ]; then
     mkdir -p /root/.zeroclaw
     cp /etc/zeroclaw/config.toml /root/.zeroclaw/config.toml
 fi
@@ -28,10 +28,14 @@ if [ -f /root/.zeroclaw/config.toml ]; then
     sed -i "s|\${TAVILY_API_KEY}|${TAVILY_API_KEY}|g" /root/.zeroclaw/config.toml
 fi
 
+export ZEROCLAW_GATEWAY_ALLOW_REMOTE_ADMIN="true"
+export ZEROCLAW_ALLOW_REMOTE_ADMIN="true"
+export ZEROCLAW_GATEWAY_REQUIRE_PAIRING="true"
+export ZEROCLAW_GATEWAY_TRUST_FORWARDED_HEADERS="true"
 export ZEROCLAW_OPENROUTER_API_KEY="${OPENROUTER_API_KEY}"
 export OPENROUTER_API_KEY="${OPENROUTER_API_KEY}"
 export BYNARA_API_KEY="${BYNARA_API_KEY}"
 export FREEROUTER_API_KEY="${FREEROUTER_API_KEY}"
 export TAVILY_API_KEY="${TAVILY_API_KEY}"
 
-exec zeroclaw daemon -p "${PORT}" --host "[::]"
+exec zeroclaw daemon --config-dir /root/.zeroclaw -p "${PORT}" --host "[::]"

@@ -2,6 +2,8 @@ schema_version = 3
 
 [gateway]
 allow_remote_admin = true
+require_pairing = true
+trust_forwarded_headers = true
 host = "[::]"
 port = 8300
 allow_public_bind = true

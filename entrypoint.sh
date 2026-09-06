@@ -21,7 +21,7 @@ if [ ! -f /root/.zeroclaw/config.toml ] && [ -f /etc/zeroclaw/config.toml ]; the
 fi
 
 if [ -f /root/.zeroclaw/config.toml ]; then
-    sed -i "s/port = .*/port = ${PORT}/g" /root/.zeroclaw/config.toml
+    sed -i "s/^port = .*/port = ${PORT}/g" /root/.zeroclaw/config.toml
     sed -i "s|\${OPENROUTER_API_KEY}|${OPENROUTER_API_KEY}|g" /root/.zeroclaw/config.toml
     sed -i "s|\${BYNARA_API_KEY}|${BYNARA_API_KEY}|g" /root/.zeroclaw/config.toml
     sed -i "s|\${FREEROUTER_API_KEY}|${FREEROUTER_API_KEY}|g" /root/.zeroclaw/config.toml

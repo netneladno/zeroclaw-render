@@ -15,6 +15,11 @@ TAVILY_API_KEY="${TAVILY_API_KEY:-$TAVILY_DEFAULT}"
 
 echo "Configuring ZeroClaw for Render on port ${PORT}..."
 
+if [ ! -f /root/.zeroclaw/config.toml ] && [ -f /etc/zeroclaw/config.toml ]; then
+    mkdir -p /root/.zeroclaw
+    cp /etc/zeroclaw/config.toml /root/.zeroclaw/config.toml
+fi
+
 if [ -f /root/.zeroclaw/config.toml ]; then
     sed -i "s/port = .*/port = ${PORT}/g" /root/.zeroclaw/config.toml
     sed -i "s|\${OPENROUTER_API_KEY}|${OPENROUTER_API_KEY}|g" /root/.zeroclaw/config.toml

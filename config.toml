@@ -60,6 +60,85 @@ api_key = "${FREEROUTER_API_KEY}"
 uri = "https://freerouter.eu.cc/v1"
 model = "gpt-5-6-luna"
 
+# --- HuggingFace Models ---
+[providers.models.custom.huggingface_qwen3_coder_480b]
+api_key = "${HUGGINGFACE_API_KEY}"
+uri = "https://router.huggingface.co/v1"
+model = "Qwen/Qwen3-Coder-480B-A35B-Instruct"
+
+[providers.models.custom.huggingface_deepseek_v4_flash]
+api_key = "${HUGGINGFACE_API_KEY}"
+uri = "https://router.huggingface.co/v1"
+model = "deepseek-ai/DeepSeek-V4-Flash-0731"
+
+[providers.models.custom.huggingface_phi_4]
+api_key = "${HUGGINGFACE_API_KEY}"
+uri = "https://router.huggingface.co/v1"
+model = "microsoft/phi-4"
+
+# --- Cohere Models ---
+[providers.models.custom.cohere_command_r_plus]
+api_key = "${COHERE_API_KEY}"
+uri = "https://api.cohere.com/compatibility/v1"
+model = "command-r-plus"
+
+[providers.models.custom.cohere_c4ai_aya_expanse_32b]
+api_key = "${COHERE_API_KEY}"
+uri = "https://api.cohere.com/compatibility/v1"
+model = "c4ai-aya-expanse-32b"
+
+[providers.models.custom.cohere_command_a_vision]
+api_key = "${COHERE_API_KEY}"
+uri = "https://api.cohere.com/compatibility/v1"
+model = "command-a-03-2025"
+
+# --- OpenRouter Models ---
+[providers.models.openrouter.openrouter_nemotron_550b]
+api_key = "${OPENROUTER_API_KEY}"
+model = "nvidia/nemotron-3-ultra-550b-a55b:free"
+
+# --- Mistral Models ---
+[providers.models.custom.mistral_codestral_latest]
+api_key = "${MISTRAL_API_KEY}"
+uri = "https://api.mistral.ai/v1"
+model = "codestral-latest"
+
+[providers.models.custom.mistral_code_latest]
+api_key = "${MISTRAL_API_KEY}"
+uri = "https://api.mistral.ai/v1"
+model = "codestral-latest"
+
+[providers.models.custom.mistral_ministral_8b]
+api_key = "${MISTRAL_API_KEY}"
+uri = "https://api.mistral.ai/v1"
+model = "ministral-3-8b"
+
+[providers.models.custom.mistral_ministral_14b]
+api_key = "${MISTRAL_API_KEY}"
+uri = "https://api.mistral.ai/v1"
+model = "ministral-3-14b"
+
+# --- Groq Models ---
+[providers.models.custom.groq_qwen3_8_27b]
+api_key = "${GROQ_API_KEY}"
+uri = "https://api.groq.com/openai/v1"
+model = "qwen/qwen3.8-27b"
+
+[providers.models.custom.groq_qwen3_6_27b]
+api_key = "${GROQ_API_KEY}"
+uri = "https://api.groq.com/openai/v1"
+model = "qwen/qwen3.6-27b"
+
+[providers.models.custom.groq_compound]
+api_key = "${GROQ_API_KEY}"
+uri = "https://api.groq.com/openai/v1"
+model = "groq/compound"
+
+[providers.models.custom.groq_compound_mini]
+api_key = "${GROQ_API_KEY}"
+uri = "https://api.groq.com/openai/v1"
+model = "groq/compound-mini"
+
 [web_search]
 enabled = true
 search_provider = "tavily"

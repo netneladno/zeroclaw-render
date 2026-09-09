@@ -80,7 +80,7 @@ model = "microsoft/phi-4"
 [providers.models.custom.cohere_command_r_plus]
 api_key = "${COHERE_API_KEY}"
 uri = "https://api.cohere.com/compatibility/v1"
-model = "command-r-plus"
+model = "command-r-plus-08-2024"
 
 [providers.models.custom.cohere_c4ai_aya_expanse_32b]
 api_key = "${COHERE_API_KEY}"
@@ -111,12 +111,12 @@ model = "codestral-latest"
 [providers.models.custom.mistral_ministral_8b]
 api_key = "${MISTRAL_API_KEY}"
 uri = "https://api.mistral.ai/v1"
-model = "ministral-3-8b"
+model = "ministral-8b-latest"
 
 [providers.models.custom.mistral_ministral_14b]
 api_key = "${MISTRAL_API_KEY}"
 uri = "https://api.mistral.ai/v1"
-model = "ministral-3-14b"
+model = "ministral-14b-latest"
 
 # --- Groq Models ---
 [providers.models.custom.groq_qwen3_8_27b]

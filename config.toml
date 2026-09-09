@@ -140,7 +140,7 @@ uri = "https://api.groq.com/openai/v1"
 model = "groq/compound-mini"
 
 [web_search]
-enabled = true
+enabled = false
 search_provider = "tavily"
 tavily_api_key = "${TAVILY_API_KEY}"
 
